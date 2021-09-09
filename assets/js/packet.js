@@ -28,16 +28,16 @@ $(document).ready(function() {
                 let temp = data.data[i];
                 console.log(temp);
 
-                tc.push({id : temp['id'], kakao : temp["kakao_id"] }); 
+                tc.push({id : temp['id'], kakao : temp["kakao_id"], name : temp["name"]}); 
             }
         }        
         
-        html += "<thead><tr><th>id</th><th>kakao_id</th></tr></thead>";
+//        html += "<thead><tr><th>id</th><th>kakao_id</th></tr></thead>";
 
         for(key in tc){
             html += '<tr id="tcid_'+tc[key].kakao + '" onClick="reply_click_id(this.id)">';
-            html += '<td><U style="color:blue;cursor:pointer">'+tc[key].id+'</U></td>';
-            html += '<td>'+tc[key].kakao+'</td>';
+            html += '<td><U style="color:blue;cursor:pointer">'+tc[key].name+'</U></td>';
+//            html += '<td>'+tc[key].kakao+'</td>';
             html += '</tr>';
         }
                     
@@ -58,13 +58,19 @@ function tableCreate_date(data){
             let temp = data.data[i];
             console.log(temp);
 
-            tc.push({date:temp["date"], id : temp['id'], kakao : temp["kakao_id"] }); 
+            tc.push({date:temp.dates["date"], id : temp['id'], kakao : temp["kakao_id"], emotion : temp["dates"]["imotions"]}); 
         }
     }        
     
     for(key in tc){
         html += '<tr id="tcid_'+ tc[key].date + '"onClick="reply_click_date(this.id)">';
         html += '<td><U style="color:blue; cursor:pointer">'+ tc[key].date+'</U></td>';
+        html += '&nbsp;';
+        console.log(tc[key].emotion);
+        for (emotion in tc[key].emotion)
+        {
+            html += '<td>[' + tc[key].emotion[emotion] + ']</td>';
+        }
         html += '</tr>';
     }
     
