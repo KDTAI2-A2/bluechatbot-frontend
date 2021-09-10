@@ -32,11 +32,9 @@ $(document).ready(function() {
             }
         }        
         
-//        html += "<thead><tr><th>id</th><th>kakao_id</th></tr></thead>";
-
         for(key in tc){
             html += '<tr id="tcid_'+tc[key].kakao + '" onClick="reply_click_id(this.id)">';
-            html += '<td><U style="color:blue;cursor:pointer">'+tc[key].name+'</U></td>';
+            html += '<td class="korean_list"><U style="color:blue;cursor:pointer">'+tc[key].name+'</U></td>';
 //            html += '<td>'+tc[key].kakao+'</td>';
             html += '</tr>';
         }
@@ -69,7 +67,7 @@ function tableCreate_date(data){
         console.log(tc[key].emotion);
         for (emotion in tc[key].emotion)
         {
-            html += '<td>[' + tc[key].emotion[emotion] + ']</td>';
+            html += '<td class="korean_user">+' + tc[key].emotion[emotion] + '</td>';
         }
         html += '</tr>';
     }
@@ -135,8 +133,8 @@ function fill_chat_log(data)
 
         for (let i = 0; i < botMessage.length; i++)
         {
-            html += "<div>" + botMessage[i] + "</div><br>";
-            html += "<div style='text-align: right;'>" + userMessage[i] + "</div><br>";
+            html += "<div class='korean_chatbot'>" + botMessage[i] + "</div><br>";
+            html += "<div style='text-align: right;' class='korean_user'>" + userMessage[i] + "</div><br>";
         }
     }        
 
