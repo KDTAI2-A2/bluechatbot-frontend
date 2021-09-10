@@ -133,8 +133,8 @@ function fill_chat_log(data)
 
         for (let i = 0; i < botMessage.length; i++)
         {
-            html += "<div class='korean_chatbot'>" + botMessage[i] + "</div><br>";
-            html += "<div style='text-align: right;' class='korean_user'>" + userMessage[i] + "</div><br>";
+            html += "<div class='korean_user'>" + userMessage[i] + "</div><br>";
+            html += "<div style='text-align: right;' class='korean_chatbot'>" + botMessage[i] + "</div><br>";
         }
     }        
 
